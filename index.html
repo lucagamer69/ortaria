@@ -6,133 +6,264 @@
   <title>ORT'ARIA | Coltivare il futuro sui tetti della città</title>
   <style>
     :root {
-      --primary: #10b981;
-      --primary-dark: #059669;
+      --primary: #15803d;
+      --primary-dark: #166534;
       --secondary: #0f172a;
-      --accent: #34d399;
-      --bg-light: #f8fafc;
+      --text-main: #334155;
       --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --hero-bg: linear-gradient(180deg, #f0fdf4 0%, #f8fafc 100%);
       --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --accent-soft: #dcfce7;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-    body { background-color: var(--bg-light); color: var(--secondary); line-height: 1.6; }
-    header { background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%); color: #fff; padding: 3rem 1.25rem 4rem; text-align: center; }
-    .badge { display: inline-block; background: rgba(52, 211, 153, 0.2); color: var(--accent); padding: 0.35rem 0.9rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.8rem; border: 1px solid rgba(52, 211, 153, 0.3); }
-    h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.025em; }
-    header p { max-width: 600px; margin: 0 auto 1.5rem; font-size: 1rem; color: #cbd5e1; }
-    .cta-btn { display: inline-block; background: var(--primary); color: #fff; text-decoration: none; padding: 0.75rem 1.75rem; border-radius: 8px; font-weight: 600; font-size: 1rem; }
+    body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; }
     
-    .container { max-width: 900px; margin: -2rem auto 3rem; padding: 0 1.25rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem; }
-    .card { background: var(--card-bg); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0; }
-    .card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; color: #064e3b; }
-    .card p { font-size: 0.9rem; color: var(--text-muted); }
+    header { 
+      background: var(--hero-bg); 
+      color: var(--secondary); 
+      padding: 4.5rem 1.5rem 3.5rem; 
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .badge { 
+      display: inline-block; 
+      background: var(--accent-soft); 
+      color: var(--primary); 
+      padding: 0.4rem 1.2rem; 
+      border-radius: 999px; 
+      font-size: 0.8rem; 
+      font-weight: 700; 
+      letter-spacing: 0.05em;
+      text-transform: uppercase; 
+      margin-bottom: 1.2rem; 
+      border: 1px solid #bbf7d0; 
+    }
+    h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.025em; color: #064e3b; }
+    header p { max-width: 680px; margin: 0 auto 2rem; font-size: 1.15rem; color: #475569; }
+    .cta-container { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .cta-btn { 
+      display: inline-block; 
+      background: var(--primary); 
+      color: #fff; 
+      text-decoration: none; 
+      padding: 0.85rem 2rem; 
+      border-radius: 8px; 
+      font-weight: 600; 
+      font-size: 1rem; 
+      box-shadow: 0 4px 12px rgba(21, 128, 61, 0.2);
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+    .cta-btn:hover { background: var(--primary-dark); transform: translateY(-1px); }
+    .cta-btn-outline {
+      background: #fff;
+      color: var(--secondary);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .cta-btn-outline:hover { background: #f1f5f9; color: var(--secondary); }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem; }
     
-    .stats-bar { background: #fff; border-radius: 12px; padding: 1.5rem; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; border: 1px solid #e2e8f0; text-align: center; }
-    .stat-item h4 { font-size: 1.8rem; color: var(--primary); font-weight: 800; }
-    .stat-item span { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+    .stats-bar { 
+      background: #fff; 
+      border-radius: 12px; 
+      padding: 2rem 1.5rem; 
+      display: flex; 
+      justify-content: space-around; 
+      flex-wrap: wrap; 
+      gap: 1.5rem; 
+      margin-bottom: 4rem; 
+      border: 1px solid var(--border-color); 
+      text-align: center; 
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); 
+    }
+    .stat-item h4 { font-size: 2.2rem; color: var(--primary); font-weight: 800; }
+    .stat-item span { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
     
-    .form-section { background: var(--card-bg); border-radius: 14px; padding: 1.75rem; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06); border: 1px solid #e2e8f0; }
-    .form-section h2 { font-size: 1.6rem; margin-bottom: 0.5rem; text-align: center; color: #0f172a; }
-    .form-section > p { text-align: center; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem; }
+    .section-title { text-align: center; margin-bottom: 2.5rem; }
+    .section-title h2 { font-size: 2rem; color: var(--secondary); margin-bottom: 0.5rem; }
+    .section-title p { color: var(--text-muted); font-size: 1rem; max-width: 650px; margin: 0 auto; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
+    .card { background: var(--card-bg); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); border: 1px solid var(--border-color); }
+    .card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: #064e3b; }
+    .card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.55; }
+    .card ul { margin-top: 1rem; list-style-position: inside; color: var(--text-main); font-size: 0.9rem; }
+    .card li { margin-bottom: 0.4rem; }
+
+    .horeca-highlight {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--primary);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 4rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+    .horeca-highlight h3 { font-size: 1.5rem; color: #064e3b; margin-bottom: 1rem; }
+    .horeca-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+    .horeca-item { background: #f8fafc; padding: 1.2rem; border-radius: 8px; border: 1px solid #e2e8f0; }
+    .horeca-item strong { display: block; color: var(--secondary); margin-bottom: 0.3rem; font-size: 0.95rem; }
+    .horeca-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+    .form-section { background: var(--card-bg); border-radius: 16px; padding: 3rem 2rem; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05); border: 1px solid var(--border-color); }
+    .form-section h2 { font-size: 1.85rem; margin-bottom: 0.5rem; text-align: center; color: var(--secondary); }
+    .form-section > p { text-align: center; color: var(--text-muted); margin-bottom: 2rem; font-size: 1rem; }
     
-    .form-group { margin-bottom: 1.2rem; }
-    label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: #334155; }
-    input, select, textarea { width: 100%; padding: 0.7rem 0.85rem; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 0.95rem; }
-    textarea { resize: vertical; min-height: 90px; }
-    .submit-btn { width: 100%; background: var(--primary); color: #fff; border: none; padding: 0.9rem; border-radius: 8px; font-size: 1.05rem; font-weight: 600; cursor: pointer; }
+    .form-group { margin-bottom: 1.3rem; }
+    label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; color: #334155; }
+    input, select, textarea { width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 0.95rem; background: #fff; color: var(--secondary); }
+    input:focus, select:focus, textarea:focus { outline: 2px solid var(--primary); border-color: transparent; }
+    textarea { resize: vertical; min-height: 100px; }
+    .submit-btn { width: 100%; background: var(--primary); color: #fff; border: none; padding: 1rem; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background 0.2s ease; margin-top: 0.5rem; }
+    .submit-btn:hover { background: var(--primary-dark); }
     
-    footer { text-align: center; padding: 2.5rem 1.25rem; font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid #e2e8f0; }
+    footer { text-align: center; padding: 3rem 1.5rem; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border-color); }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="badge">Iniziativa AgTech & Sostenibilità Urbana</div>
+    <div class="badge">Agricoltura Urbana sui Tetti</div>
     <h1>ORT'ARIA</h1>
-    <p>Rigeneriamo superfici urbane e lastrici solari attraverso moduli idroponici leggeri a ciclo chiuso per produrre cibo fresco a filiera cortissima.</p>
-    <a href="#unisciti" class="cta-btn">Partecipa o Sostieni</a>
+    <p>Riqualifichiamo i lastrici solari e le superfici urbane dismesse, trasformandoli in micro-farm idroponiche a ciclo chiuso. Portiamo cibo vivo e freschissimo a centimetro zero nel cuore della città.</p>
+    <div class="cta-container">
+      <a href="#unisciti" class="cta-btn">Candidati o Partecipa</a>
+      <a href="#ristoranti" class="cta-btn cta-btn-outline">Sei un Ristoratore?</a>
+    </div>
   </header>
 
   <div class="container">
     
+    <!-- STATS SOSTENIBILITA' & TECNOLOGIA -->
     <div class="stats-bar">
       <div class="stat-item">
         <h4>-90%</h4>
-        <span>Risparmio Idrico</span>
+        <span>Consumo Idrico a Ciclo Chiuso</span>
+      </div>
+      <div class="stat-item">
+        <h4>0 km</h4>
+        <span>Filiera Corta Urbana</span>
       </div>
       <div class="stat-item">
         <h4>~106 kg/m²</h4>
         <span>Carico Statico Leggero</span>
       </div>
       <div class="stat-item">
-        <h4>0 km</h4>
-        <span>Chilometro Zero Reale</span>
-      </div>
-      <div class="stat-item">
         <h4>-26 °C</h4>
-        <span>Raffrescamento Estivo</span>
+        <span>Isolamento e Raffrescamento Estivo</span>
       </div>
+    </div>
+
+    <!-- SEZIONE RISTORAZIONE E QUALITÀ -->
+    <div id="ristoranti" class="horeca-highlight">
+      <h3>🌱 Per Ristoranti, Bistrot & Cucina Vegetale</h3>
+      <p>Basta scarti da trasporto, lattughe appassite o erbe cariche di terra. ORT'ARIA rifornisce i locali della città con varietà raccolte a poche centinaia di metri dal piatto o consegnate a radice viva per garantire una tenuta in frigo fino a 10 giorni con il 100% di resa edibile.</p>
+      
+      <div class="horeca-grid">
+        <div class="horeca-item">
+          <strong>🌿 Microgreens & Germogli Carnosi</strong>
+          <p>Pisello verde (pea shoots), girasole e micro-ravanello ricchi di proteine e croccantezza per bowl e piatti caldi.</p>
+        </div>
+        <div class="horeca-item">
+          <strong>🥗 Foglia Tradizionale & Orientale</strong>
+          <p>Pak Choi carnoso, Kale nano a raccolta scalare, Lattuga Romana croccante e spinacino tenero senza pesticidi.</p>
+        </div>
+        <div class="horeca-item">
+          <strong>🌱 Aromatiche Vive a Radice Pulita</strong>
+          <p>Basilico Genovese a foglia larga, shiso, menta e coriandolo per pesti, salse crude e marinature gourmet.</p>
+        </div>
+        <div class="horeca-item">
+          <strong>📦 Box Forniture Programmate</strong>
+          <p>Consegne settimanali calibrate sui tuoi volumi reali per azzerare lo spreco e valorizzare il tuo menu a km 0.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COSA STIAMO CERCANDO / POSIZIONI APERTE -->
+    <div class="section-title">
+      <h2>Figure Aperte e Competenze Ricercate</h2>
+      <p>Stiamo strutturando il team e il network del primo impianto pilota a Bologna. Cerchiamo talenti e partner che vogliano costruire insieme una nuova filiera urbana.</p>
     </div>
 
     <div class="grid">
       <div class="card">
-        <h3>🌱 Tetti Produttivi & UFaaS</h3>
-        <p>Soluzione modulare a vasche e canaline senza cubatura volumetrica, a zero consumo di suolo fertile.</p>
+        <h3>🔬 Agronomia & Biosicurezza</h3>
+        <p>Competenze in fisiologia vegetale, gestione di soluzioni nutritive idroponiche (NFT / DWC) e biosicurezza radicale per ottimizzare le rese colturali.</p>
+        <ul>
+          <li>Specializzazione in colture fuori suolo</li>
+          <li>Ottimizzazione ricette EC / pH</li>
+          <li>Gestione microclima e parassiti a lotta biologica</li>
+        </ul>
       </div>
+
       <div class="card">
-        <h3>💧 Microgreens & Colture Locali</h3>
-        <p>Germogli, erbe aromatiche e insalate coltivate a radice pulita, ideali per chef e bistrot del territorio.</p>
+        <h3>⚡ IoT, Automazione & Idraulica</h3>
+        <p>Ingegneri o tecnici per l'automazione dei loop di ricircolo idrico, integrazione di sensori telemetrici e monitoraggio continuo dei parametri.</p>
+        <ul>
+          <li>Programmazione PLC / microcontrollori (ESP32/Arduino)</li>
+          <li>Gestione pompe, elettrovalvole e dosaggio chimico</li>
+          <li>Sensoristica remota e gestione consumi energetici</li>
+        </ul>
       </div>
+
       <div class="card">
-        <h3>🤝 Community Aperta</h3>
-        <p>Cerchiamo collaboratori, agronomi, sviluppatori tecnici, ristoratori e investitori interessati al verde urbano.</p>
+        <h3>💼 Business Development & Bandi</h3>
+        <p>Figure commerciali orientate alla vendita B2B Ho.Re.Ca, accordi di fornitura continua, gestione canali pre-seed e candidature a bandi territoriali.</p>
+        <ul>
+          <li>Relazioni commerciali e chiusura LOI con chef e locali</li>
+          <li>Partecipazione a bandi regionali e fondi ESG</li>
+          <li>Sviluppo di partnership UFaaS con il settore Real Estate</li>
+        </ul>
       </div>
     </div>
 
+    <!-- FORM DI CANDIDATURA -->
     <section id="unisciti" class="form-section">
-      <h2>Unisciti al Progetto ORT'ARIA</h2>
-      <p>Compila il modulo per unirti al team, proporre uno spazio o sostenere lo sviluppo del pilota.</p>
+      <h2>Collabora con ORT'ARIA</h2>
+      <p>Compila il form indicando come vorresti partecipare: che tu voglia unirti al team, testare i prodotti nel tuo locale, mettere a disposizione un lastrico solare o supportare il progetto come investitore.</p>
       
       <form action="https://formspree.io/f/TUO_FORM_ID" method="POST">
         
         <div class="form-group">
-          <label for="nome">Nome e Cognome *</label>
-          <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+          <label for="nome">Nome e Cognome / Referente *</label>
+          <input type="text" id="nome" name="nome" placeholder="Mario Rossi" required>
         </div>
 
         <div class="form-group">
-          <label for="email">Email di contatto *</label>
-          <input type="email" id="email" name="email" placeholder="latua@email.com" required>
+          <label for="email">Indirizzo Email *</label>
+          <input type="email" id="email" name="email" placeholder="nome@azienda.it" required>
         </div>
 
         <div class="form-group">
-          <label for="ruolo">Come vorresti partecipare? *</label>
-          <select id="ruolo" name="ruolo" required>
-            <option value="" disabled selected>Seleziona un'opzione...</option>
-            <option value="Agronomo/a">Agronomo/a o Ricerca botanica</option>
-            <option value="Ingegnere IoT">Ingegnere / Tecnico IoT & Automazione</option>
-            <option value="Business & Sales">Business Development & Bandi</option>
-            <option value="Sostenitore / Finanziatore">Sostenitore, Donatore o Business Angel</option>
-            <option value="Proprietario Immobile">Proprietario di tetto/superficie</option>
-            <option value="Ristoratore">Chef o Ristoratore interessato</option>
-            <option value="Altro">Altro interesse / Curioso</option>
+          <label for="profilo">Area di interesse / Profilo *</label>
+          <select id="profilo" name="profilo" required>
+            <option value="" disabled selected>Seleziona la tua area...</option>
+            <option value="Chef / Ristoratore">Chef / Ristoratore (Interessato alle forniture a km 0)</option>
+            <option value="Agronomo">Agronomo/a (Candidatura nel team tecnico)</option>
+            <option value="Ingegnere IoT">Ingegnere IoT / Automazione (Candidatura nel team tecnico)</option>
+            <option value="Business & Bandi">Business Development, Vendita & Bandi</option>
+            <option value="Proprietario Immobile">Proprietario di lastrico solare / Tetto urbano</option>
+            <option value="Investitore / Mentor">Business Angel, Mentor o Sostenitore</option>
+            <option value="Altro">Altra proposta di collaborazione</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="messaggio">Presentazione o Proposta *</label>
-          <textarea id="messaggio" name="messaggio" placeholder="Raccontaci brevemente di te o di come vorresti collaborare..." required></textarea>
+          <label for="messaggio">Come vorresti collaborare? *</label>
+          <textarea id="messaggio" name="messaggio" placeholder="Descrivi brevemente il tuo background o le esigenze del tuo locale/spazio..." required></textarea>
         </div>
 
-        <button type="submit" class="submit-btn">Invia Candidatura / Messaggio</button>
+        <button type="submit" class="submit-btn">Invia Candidatura / Richiesta</button>
       </form>
     </section>
 
   </div>
 
   <footer>
-    <p>© 2026 ORT'ARIA • Bologna, Italia</p>
+    <p>© 2026 ORT'ARIA • Progetto di Agricoltura Urbana & UFaaS • Bologna, Italia</p>
   </footer>
 
 </body>
